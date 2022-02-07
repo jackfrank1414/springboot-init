@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jackfrank.springbootinit.mapper.CourseMapper">
+  <resultMap id="BaseResultMap" type="com.jackfrank.springbootinit.pojo.Course">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <constructor>
+      <idArg column="courseNo" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="courseName" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="credit" javaType="java.lang.Integer" jdbcType="INTEGER" />
+    </constructor>
+  </resultMap>
+</mapper>

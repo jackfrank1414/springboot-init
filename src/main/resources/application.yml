@@ -1,0 +1,55 @@
+# 应用名称
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/teachingdb?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: root
+    hikari:
+      connection-timeout: 30000         #等待连接池分配连接的最大时长
+      minimum-idle: 5                   #最小连接数
+      maximum-pool-size: 20             #最大连接数
+      auto-commit: true                 #自动提交
+      idle-timeout: 600000              #连接超时的最大时长，超时则被释放
+      pool-name: DateSourceHikariCP     #连接池名字
+      max-lifetime: 1800000             #连接的生命时长，没有使用则被释放
+      connection-test-query: SELECT 1
+  servlet:
+    multipart:
+      max-file-size: 500KB
+      max-request-size: 2MB
+  application:
+    name: springboot-init
+  banner:
+    image:
+      location: classpath:banner\uugai.com_1632411511552.png
+
+# 应用服务 WEB 访问端口
+server:
+  port: 8080
+
+
+#MyBatis相关配置
+mybatis:
+  type-aliases-package: com.jackfrank.springbootinit.pojo           #数据库表逆向工程后映射的实体类
+  mapper-locations: classpath:mappers/*.xml                         #mapper映射文件梭子位置
+
+#通用mapper配置
+mapper:
+  mappers: com.jackfrank.springbootinit.my.mapper.MyMapper            #所有mapper都需要实现的接口
+  not-empty: false        #不需要自动追加判空语句
+  identity: MYSQL
+
+#分页插件配置
+pagehelper:
+  helper-dialect: mysql
+  support-methods-arguments: true
+
+self:
+  stu1:
+    name: jackfrank
+    gender: male
+  stu2:
+    gender: female
+    age: 21
